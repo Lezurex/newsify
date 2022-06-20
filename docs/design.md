@@ -9,7 +9,11 @@ and Television). If there is enough time left, we plan to offer a feature where 
 the RSS feed or add a new one. Another optional feature would be, that the user is able to
 categorize the articles manually.
 
-## Use Case Specification
+## Use Cases
+
+![use case diagram](img/use_case.png)
+
+### Use Case Specification
 
 |                |                                                 |
 | -------------- | ----------------------------------------------- |
@@ -51,7 +55,7 @@ categorize the articles manually.
 | Post-condition | Only articles of selected category shown                          |
 | Exceptions     | Invalid category, No categories                                   |
 
-### Optional Use Cases
+#### Optional Use Cases
 
 These Use Cases will only be implemented, if there's enough time left.
 
@@ -74,3 +78,15 @@ These Use Cases will only be implemented, if there's enough time left.
 | Main Scenario  | User wants to manually change the category of a single article |
 | Post-condition | Category of article changed                                    |
 | Exceptions     | Invalid category                                               |
+
+## Domain Model
+
+![domain model](img/domain_model.png)
+
+## CRC Cards
+
+![crc cards](img/crc_cards.png)
+
+## Class Diagram
+
+![class diagram](img/class_diagram.png)
