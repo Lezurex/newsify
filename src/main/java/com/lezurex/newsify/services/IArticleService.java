@@ -10,5 +10,5 @@ import java.util.List;
 public interface IArticleService {
 	public List<Article> getArticles();
 
-	public Article createArticle(String guid, String title, String description, Date pubDate, String link, Category category, RSSFeed rssFeed);
+	public Article createArticle(String guid, String title, String description, Date pubDate, String link, RSSFeed rssFeed);
 }
