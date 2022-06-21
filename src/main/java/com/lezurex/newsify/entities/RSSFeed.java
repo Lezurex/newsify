@@ -20,4 +20,12 @@ public class RSSFeed {
   @ManyToOne
   private Category category;
 
+  public RSSFeed() {}
+
+  public RSSFeed(Long id, String url, Category category) {
+    this.id = id;
+    this.url = url;
+    this.category = category;
+  }
+
 }

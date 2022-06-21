@@ -14,10 +14,12 @@ public interface IArticleRepo extends CrudRepository<Article, String> {
 
   public List<Article> findByCategory(Category category);
 
+  public List<Article> findByCategoryOrderByPubDate(Category category);
+
   public void delete(Article article);
 
   public void deleteByGuid(String guid);
 
-  public void setCategory(Article article,Category category);
+  public void setCategory(Article article, Category category);
 
 }

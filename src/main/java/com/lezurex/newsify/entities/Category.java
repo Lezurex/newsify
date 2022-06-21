@@ -21,4 +21,12 @@ public class Category {
   @OneToMany
   private List<Article> articles;
 
+  public Category() {};
+
+  public Category(Long id, String name, List<Article> articles) {
+    this.id = id;
+    this.name = name;
+    this.articles = articles;
+  }
+
 }
