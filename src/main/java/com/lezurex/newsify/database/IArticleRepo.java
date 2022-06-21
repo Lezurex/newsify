@@ -18,4 +18,6 @@ public interface IArticleRepo extends CrudRepository<Article, String> {
 
   public void deleteByGuid(String guid);
 
+  public void setCategory(Article article,Category category);
+
 }

@@ -11,4 +11,6 @@ public interface IArticleService {
 	public List<Article> getArticles();
 
 	public Article createArticle(String guid, String title, String description, Date pubDate, String link, RSSFeed rssFeed);
+
+	public void setCategory (Article article, Category category);
 }

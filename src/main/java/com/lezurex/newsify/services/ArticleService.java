@@ -26,4 +26,10 @@ public class ArticleService implements IArticleService {
 		Category category = rssFeed.getCategory();
 		return new Article(guid, title, description, pubDate, link, category, rssFeed);
 	}
+
+	@Override
+	public void setCategory(Article article, Category category) {
+		article.setCategory(category);
+		articleRepo.save(article);
+	}
 }
