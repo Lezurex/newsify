@@ -8,18 +8,14 @@ import com.lezurex.newsify.entities.Category;
 
 public interface IArticleRepo extends CrudRepository<Article, String> {
 
-  public List<Article> getArticles();
+  public List<Article> findAll();
 
-  public Optional<Article> getByGuid(String guid);
+  public Optional<Article> findByGuid(String guid);
 
-  public List<Article> getByCategory(Category category);
-
-  public void add(Article article);
+  public List<Article> findByCategory(Category category);
 
   public void delete(Article article);
 
   public void deleteByGuid(String guid);
-
-  public void update(Article article);
 
 }
