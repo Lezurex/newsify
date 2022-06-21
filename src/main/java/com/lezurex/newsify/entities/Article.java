@@ -24,4 +24,17 @@ public class Article {
   @ManyToOne
   private RSSFeed rssFeed;
 
+  public Article(String guid, String title, String description, Date pubDate, String link, Category category, RSSFeed rssFeed) {
+    this.guid = guid;
+    this.title = title;
+    this.description = description;
+    this.pubDate = pubDate;
+    this.link = link;
+    this.category = category;
+    this.rssFeed = rssFeed;
+  }
+
+	public Article() {
+
+	}
 }

@@ -1,4 +1,4 @@
-package com.lezurex.newsify;
+package com.lezurex.newsify.services;
 
 import com.lezurex.newsify.entities.Article;
 import com.lezurex.newsify.entities.Category;
@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface IArticleService {
 	public List<Article> getArticles();
-	public Article createArticle(String guid, String title, String description, Date pubDate, Category category, String linkToArticle, RSSFeed rssFeed);
+
+	public Article createArticle(String guid, String title, String description, Date pubDate, String link, Category category, RSSFeed rssFeed);
 }
