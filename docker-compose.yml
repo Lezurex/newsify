@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: newsify
+      MYSQL_PASSWORD: newsify
+      MYSQL_DATABASE: newsify
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8000:80
+    environment:
+      PMA_HOST: db
+      PMA_USER: newsify
+      PMA_PASSWORD: newsify
+
+volumes:
+  db:
+
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.182.0/24
