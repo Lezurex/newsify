@@ -27,7 +27,7 @@ public class CategoryServiceTest {
   private CategoryService categoryService;
 
   @Test
-  public void testGetAll() {
+  public void canGetAll() {
     final List<Article> mockArticles = List.of();
     final List<Category> mockCategories = new ArrayList<>();
     mockCategories.add(new Category(1L, "Schweiz", mockArticles));
@@ -38,7 +38,7 @@ public class CategoryServiceTest {
   }
 
   @Test
-  public void testGetAllEmpty() {
+  public void canGetAllWhenEmpty() {
     final List<Category> mockCategories = List.of();
     when(categoryRepo.findAll()).thenReturn(mockCategories);
 
@@ -47,7 +47,7 @@ public class CategoryServiceTest {
   }
 
   @Test
-  public void testAddCategory() {
+  public void canAddCategory() {
     Category category = new Category(null, "Schweiz", List.of());
 
     when(categoryRepo.save(category)).thenReturn(null);
@@ -57,7 +57,7 @@ public class CategoryServiceTest {
   }
 
   @Test
-  public void testAddBasedOnFeed() {
+  public void canAddCategoryBasedOnFeed() {
     final Category category = new Category(1L, "Weather", List.of());
     final RSSFeed rssFeed = new RSSFeed(1L, "https://nonexistens.com", category);
     final Article article = new Article("123", "Beautiful weather", "Sunny and 43 degrees",
