@@ -2,6 +2,8 @@ package com.lezurex.newsify.database;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import com.lezurex.newsify.entities.Article;
 import com.lezurex.newsify.entities.Category;
@@ -20,6 +22,8 @@ public interface IArticleRepo extends CrudRepository<Article, String> {
 
   public void deleteByGuid(String guid);
 
-  public void setCategory(Article article, Category category);
+  @Modifying
+  @Query("update Article set category = ?2 where id = ?1")
+  public void setCategoryById(String id, Category category);
 
 }
