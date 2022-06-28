@@ -5,16 +5,17 @@ import com.lezurex.newsify.entities.RSSFeed;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
-public class RSSFeedService implements IRSSFeedService{
-	IRSSFeedRepo rsaFeedRepo;
+public class RSSFeedService implements IRSSFeedService {
+	private IRSSFeedRepo rssFeedRepo;
 
 	public RSSFeedService(IRSSFeedRepo rssFeedRepo) {
-		this.rsaFeedRepo = rssFeedRepo;
+		this.rssFeedRepo = rssFeedRepo;
 	}
 
 	@Override
 	public List<RSSFeed> getRSSFeeds() {
-		return rsaFeedRepo.findAll();
+		return rssFeedRepo.findAll();
 	}
 }
