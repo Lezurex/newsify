@@ -2,7 +2,6 @@ package com.lezurex.newsify.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -29,11 +28,11 @@ public class CategoryServiceTest {
   @Test
   public void canGetAll() {
     final List<Article> mockArticles = List.of();
-    final List<Category> mockCategories = new ArrayList<>();
-    mockCategories.add(new Category(1L, "Schweiz", mockArticles));
+    final List<Category> mockCategories = List.of(new Category(1L, "Schweiz", mockArticles));
     when(categoryRepo.findAll()).thenReturn(mockCategories);
 
     List<Category> result = categoryService.getCategories();
+
     assertEquals(mockCategories, result);
   }
 
@@ -43,16 +42,17 @@ public class CategoryServiceTest {
     when(categoryRepo.findAll()).thenReturn(mockCategories);
 
     List<Category> result = categoryService.getCategories();
+
     assertEquals(mockCategories, result);
   }
 
   @Test
   public void canAddCategory() {
     Category category = new Category(null, "Schweiz", List.of());
-
     when(categoryRepo.save(category)).thenReturn(null);
 
     Category createdCategory = categoryService.createCategory(category.getName());
+
     assertEquals(category, createdCategory);
   }
 
