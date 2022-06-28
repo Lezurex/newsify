@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import com.lezurex.newsify.database.IArticleRepo;
 import com.lezurex.newsify.entities.Article;
+import com.lezurex.newsify.entities.Category;
+import com.lezurex.newsify.entities.RSSFeed;
 
 @SpringBootTest(classes = {ArticleService.class, IArticleRepo.class})
 public class ArticleServiceTest {
@@ -38,6 +40,34 @@ public class ArticleServiceTest {
     List<Article> result = articleService.getArticles();
 
     assertEquals(List.of(), result);
+  }
+
+  @Test
+  public void canAddArticle() {
+    Category category = new Category(null, "Schweiz", List.of());
+    RSSFeed rssFeed = new RSSFeed(0L, "https://nonexistent.com", category);
+    Article article = new Article("123", "An Article", "A Description", new Date(),
+        "https://nonexistent.com", category, rssFeed);
+
+    Article createdArticle = articleService.createArticle(article.getGuid(), article.getTitle(),
+        article.getDescription(), article.getPubDate(), article.getLink(), article.getRssFeed());
+
+    assertEquals(article, createdArticle);
+  }
+
+  @Test
+  public void canSetCategory() {
+    Category category = new Category(0L, "Schweiz", List.of());
+    Category newCategory = new Category(1L, "International", List.of());
+    RSSFeed rssFeed = new RSSFeed(0L, "https://nonexistent.com", category);
+    Article article = new Article("123", "An Article", "A Description", new Date(),
+        "https://nonexistent.com", category, rssFeed);
+    Article createdArticle = articleService.createArticle(article.getGuid(), article.getTitle(),
+        article.getDescription(), article.getPubDate(), article.getLink(), article.getRssFeed());
+
+    articleService.setCategory(createdArticle, newCategory);
+
+    assertEquals(newCategory, createdArticle.getCategory());
   }
 
 }
