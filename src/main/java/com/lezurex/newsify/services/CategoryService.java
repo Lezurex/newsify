@@ -5,7 +5,9 @@ import com.lezurex.newsify.database.IArticleRepo;
 import com.lezurex.newsify.database.ICategoryRepo;
 import com.lezurex.newsify.entities.Article;
 import com.lezurex.newsify.entities.Category;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CategoryService implements ICategoryService {
 
   private final ICategoryRepo categories;

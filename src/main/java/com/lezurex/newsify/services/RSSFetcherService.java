@@ -2,9 +2,10 @@ package com.lezurex.newsify.services;
 
 import com.lezurex.newsify.database.IRSSFeedRepo;
 import com.lezurex.newsify.entities.RSSFeed;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class RSSFetcherService implements IRSSFetcherService {
 	IRSSFeedRepo feedRepo;
 

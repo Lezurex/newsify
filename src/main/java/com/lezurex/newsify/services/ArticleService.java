@@ -6,7 +6,9 @@ import com.lezurex.newsify.database.IArticleRepo;
 import com.lezurex.newsify.entities.Article;
 import com.lezurex.newsify.entities.Category;
 import com.lezurex.newsify.entities.RSSFeed;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ArticleService implements IArticleService {
 	private final IArticleRepo articleRepo;
 
