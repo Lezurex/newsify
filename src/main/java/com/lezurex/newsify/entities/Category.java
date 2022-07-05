@@ -2,6 +2,7 @@ package com.lezurex.newsify.entities;
 
 import java.util.List;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,7 +19,7 @@ public class Category {
 
   private String name;
 
-  @OneToMany
+  @OneToMany(fetch = FetchType.EAGER)
   private List<Article> articles;
 
   public Category() {};

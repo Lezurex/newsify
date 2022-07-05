@@ -3,6 +3,7 @@ package com.lezurex.newsify.entities;
 import java.util.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
@@ -14,6 +15,7 @@ public class Article {
   private String guid;
 
   private String title;
+  @Lob
   private String description;
   private Date pubDate;
   private String link;
