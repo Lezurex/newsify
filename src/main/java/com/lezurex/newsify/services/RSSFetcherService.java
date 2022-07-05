@@ -40,9 +40,9 @@ public class RSSFetcherService implements IRSSFetcherService {
 			while (iterator.hasNext()) {
 				var entry = iterator.next();
 				if (!articleRepo.existsById(entry.getUri())) {
-					Article article =
-							new Article(entry.getUri(), entry.getTitle(), entry.getDescription().getValue(),
-									entry.getPublishedDate(), entry.getLink(), rssFeed.getCategory(), rssFeed);
+					Article article = new Article(entry.getUri(), entry.getTitle(),
+							entry.getDescription() != null ? entry.getDescription().getValue() : "",
+							entry.getPublishedDate(), entry.getLink(), rssFeed.getCategory(), rssFeed);
 					articleRepo.save(article);
 				}
 			}
