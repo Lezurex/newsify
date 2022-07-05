@@ -34,10 +34,10 @@ public class CliService implements CommandLineRunner {
 			System.out.println("Sorry, there are no categories! There's nothing to view.");
 		} else {
 			while (true) {
-				System.out.println("Fetching articles...");
-				fetcherService.fetchAll();
 				displayCategories(categories);
 				int chosenCategoryIndex = getChosenCategoryIndexFromUser();
+				System.out.println("Fetching articles...");
+				fetcherService.fetchAll();
 				if (isCategoryIndexValid(categories, chosenCategoryIndex)) {
 					if (chosenCategoryIndex == -1) {
 						System.exit(SpringApplication.exit(context));
