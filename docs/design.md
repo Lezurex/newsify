@@ -90,3 +90,7 @@ These Use Cases will only be implemented, if there's enough time left.
 ## Class Diagram
 
 ![class diagram](img/class_diagram.png)
+
+## Class Diagram after implementation
+
+![class diagram after implementation](img/class_diagram_after.png)
